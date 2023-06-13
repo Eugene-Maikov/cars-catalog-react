@@ -1,13 +1,22 @@
 import {cars as carsData } from './cars.data.js'
 import CarItem from "./cat-item/CarItem.jsx";
 import CreateCarForm from "./create-car-form/CreateCarForm.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 function Home() {
 
   const [cars, setCars] = useState(carsData)
-  console.log(cars)
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:3001/cars')
+      const data = await response.json()
+
+      setCars(data)
+    }
+
+    fetchData()
+  }, [])
 
   return (
     <div>
