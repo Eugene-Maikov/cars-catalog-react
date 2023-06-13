@@ -4,7 +4,5 @@ import './assets/styles/global.css'
 import Home from "./components/screens/home/home.jsx"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <Home/>
-  </React.StrictMode>,
 )
