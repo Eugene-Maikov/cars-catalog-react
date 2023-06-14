@@ -2,7 +2,6 @@ import {cars as carsData} from './cars.data.js'
 import CarItem from "./cat-item/CarItem.jsx";
 import CreateCarForm from "./create-car-form/CreateCarForm.jsx";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {CarService} from "../../../services/car.service.js";
 
 function Home() {
