@@ -1,7 +1,9 @@
-import {cars as carsData } from './cars.data.js'
+import {cars as carsData} from './cars.data.js'
 import CarItem from "./cat-item/CarItem.jsx";
 import CreateCarForm from "./create-car-form/CreateCarForm.jsx";
 import {useEffect, useState} from "react";
+import axios from "axios";
+import {CarService} from "../../../services/car.service.js";
 
 function Home() {
 
@@ -9,13 +11,12 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3001/cars')
-      const data = await response.json()
-
+      const data = await CarService.getAll()
       setCars(data)
     }
 
     fetchData()
+
   }, [])
 
   return (
