@@ -1,8 +1,10 @@
 import {cars as carsData} from './cars.data.js'
-import CarItem from "./cat-item/CarItem.jsx";
+import CarItem from "./car-item/CarItem.jsx";
 import CreateCarForm from "./create-car-form/CreateCarForm.jsx";
-import {useEffect, useState} from "react";
+import {useCallback, useContext, useEffect, useState} from "react";
+import axios from "axios";
 import {CarService} from "../../../services/car.service.js";
+import {AuthContext} from "../../../providers/AuthProvider.jsx";
 
 function Home() {
 
@@ -13,14 +15,26 @@ function Home() {
       const data = await CarService.getAll()
       setCars(data)
     }
-
     fetchData()
-
   }, [])
+
+  const {user, setUser} = useContext(AuthContext)
 
   return (
     <div>
       <h1>Cars catalog</h1>
+
+      {user ? (
+        <>
+          <h2>Welcome, {user.name}!</h2>
+          <button onClick={() => setUser(null)}>logout</button>
+        </>
+      ) : (
+        <button
+          onClick={() => setUser({ name: 'Max', })}>
+          Login
+        </button>
+      )}
 
       <CreateCarForm setCars={setCars}/>
 

@@ -13,6 +13,12 @@ export const cars = [
   },
   {
     id: 3,
+    name: 'Aston Martin',
+    price: 200000,
+    image: 'https://wallbox.ru/resize/1152x864/wallpapers/main/201334/aston-martin-vantage-d72f568.jpg'
+  },
+  {
+    id: 4,
     name: 'Honda Civic2',
     price: 15545,
     image: 'https://cdn.carbuzz.com/gallery-images/2019-honda-civic-si-coupe-front-view-carbuzz-479093-1600.jpg'
