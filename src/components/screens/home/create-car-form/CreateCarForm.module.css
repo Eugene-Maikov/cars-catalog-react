@@ -1,0 +1,17 @@
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-bottom: 30px;
+}
+.form input{
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid transparent;
+  transition: border .2s ease;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.form input:focus{
+  border-color: #509bba;
+}
